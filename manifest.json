@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+
+    "name": "SeeChart",
+    "description": "This extension search for chart and converts it to an accessible chart.",
+    "version": "1.0.4",
+    "icons": {
+        "16": "seechart-icon.png",
+        "128": "seechart-icon.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["file:///*/*", "http://*/*", "https://*/*"],
+            "css": ["content.css"],
+            "js": ["js/content.js", "node_modules/jquery/dist/jquery.js"]
+        }
+    ],
+
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+
+    "browser_action": {
+        "default_icon": "seechart-icon.png",
+        "default_title": "SeeChart"
+    },
+
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "contextMenus"
+    ],
+
+    "web_accessible_resources": [
+        "node_modules/*",
+        "dist/*",
+        "js/*",
+		"*.mp3"
+    ]
+}
